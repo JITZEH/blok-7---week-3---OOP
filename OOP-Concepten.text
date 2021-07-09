@@ -1,0 +1,23 @@
+OOP-Concepten:
+
+* Objects & Classes
+    * Methods & Properties = een methode om iets te gebruiken & eigenschappen van class/object/function
+
+    * Constructors = functions die direct uitgevoerd worden
+
+    * Naming conventions = hoe geef je objecten, class, functions, vars en files een naam
+
+* Encapsulation
+    * Visibility & Access modifiers = zichtbaarheid en wanneer en waar je het kan gebruiken
+
+    * Getter & Setters = functions om iets aan te passen of een vaste waarde te geven (set) en om op te halen (get)
+
+* Abstraction (ontwerp) = het gebruik maken van een hoofdclasses functions
+
+* Inheritance = een extende class erft alle public en protected properties en methods van de bovenliggende class 
+
+* Static = Static methods en properties kunnen direct worden aangeroepen  zonder eerst een instantie van de class te maken.
+
+* Autoloading 
+
+* Namespacing = voor een betere organisatie door classes te groeperen die samenwerken en staan toe dat dezelfde naam voor meer dan één klasse wordt gebruikt

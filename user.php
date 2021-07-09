@@ -1,60 +1,99 @@
 <?php
-class User {
-    public $username;
-    public $firstname;
-    public $middlename;
-    public $lastname;
+declare(strict_types=1);
+namespace html;
 
-        function __construct($username, $firstname, $middlename, $lastname) {
-            $this->username = $username;
-            $this->firstname = $firstname;
-            $this->middlename = $middlename;
-            $this->lastname = $lastname;  
-        }
-        function getUsername() {
-            return $this->username;
-        }
-        function getFirstName() {
-            return $this->firstname;
-        }
-        function getMiddleName() {
-            return $this->middlename;
-        }
-        function getLastName() {
-            return $this->lastname;
-        }
+abstract class User
+{
+    /**
+     * @var string
+     */
+    private $username;
+    /**
+     * @var string
+     */
+    private $firstname;
+    /**
+     * @var string|null
+     */
+    private $middlename;
+    /**
+     * @var string
+     */
+    private $lastname;
+
+    public function __construct(string $username, string $firstname, ?string $middlename, string $lastname, int $age) {
+        $this->username = $username;
+        $this->firstname = $firstname;
+        $this->middlename = $middlename;
+        $this->lastname = $lastname;
+    }
+
+    public function getUsername(): string {
+        return $this->username;
+    }
+
+    public function getFirstName(): string {
+        return $this->firstname;
+    }
+
+    public function getMiddleName(): ?string {
+        return $this->middlename;
+    }
+
+    public function getLastName(): string {
+        return $this->lastname;
+    }
+
+    public function getAge(): int {
+        return $this->age;
+    }
 
 
+    abstract function getRights(): string;
 }
 
-class Normal_User extends User {
-    function getRights() {
+class NormalUser extends User {
+    public function getRights(): string {
         return 'normal';
     }
 }
 
-class Premium_User extends User {
-    function getRights() {
+class PremiumUser extends User {
+    public function getRights(): string {
         return 'premium';
     }
 }
 
 class Admin extends User {
-    function getRights() {
+    public function getRights(): string {
         return 'admin';
     }
 }
 
-/* users */
-$jitze = new User('JvdHoek', 'Jitze', 'van der', 'Hoek');
-/* users */
+// users
+$jitze = new Admin('JvdHoek', 'Jitze', 'van der', 'Hoek', 17);
+$niels = new NormalUser('nvdbeek', 'Niels', 'van der', 'Beek', 30);
+$gerben = new PremiumUser('ghoek', 'Gerben', null, 'Hoek', 15);
+// users
 
-echo 'username:' . '&nbsp;' . $jitze->getUserName();
-echo '<br/>';
-echo 'firstname:' . '&nbsp;' . $jitze->getFirstName();
-echo '<br/>';
-echo 'middlename:' . '&nbsp;' . $jitze->getMiddleName();
-echo '<br/>';
-echo 'lastname:' . '&nbsp;' . $jitze->getLastName();
+/** @var User[] $array */
+$array = [
+    $jitze,
+    $niels,
+    $gerben
+];
 
-
+foreach ($array as $user) {
+    printf('Gebruikersnaam: %s', $user->getUsername());
+    print_r('<br/>');
+    printf('Voornaam: %s', $user->getFirstName());
+    print_r('<br/>');
+    printf('Tussenvoegsel: %s', $user->getMiddleName() ?? '');
+    print_r('<br/>');
+    printf('Achternaam: %s', $user->getLastName());
+    print_r('<br/>');
+    printf('leeftijd: %s', $user->getAge());
+    print_r('<br/>');
+    printf('Rechten: %s', $user->getRights());
+    print_r('<br/><br/><hr/><br/>');
+}
