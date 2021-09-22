@@ -3,7 +3,7 @@ OOP-Concepten:
 * Objects & Classes
     * Methods & Properties = een methode om iets te gebruiken & eigenschappen van class/object/function
 
-    * Constructors = functions die direct uitgevoerd worden
+    * Constructors = functions die direct uitgevoerd worden en niet hoeven aangeroepen worden om te werken
 
     * Naming conventions = hoe geef je objecten, class, functions, vars en files een naam
 

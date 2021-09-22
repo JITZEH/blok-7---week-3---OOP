@@ -21,11 +21,17 @@ abstract class User
      */
     private $lastname;
 
+    /**
+     * @var int
+     */
+    private $age;
+
     public function __construct(string $username, string $firstname, ?string $middlename, string $lastname, int $age) {
         $this->username = $username;
         $this->firstname = $firstname;
         $this->middlename = $middlename;
         $this->lastname = $lastname;
+        $this->age = $age;
     }
 
     public function getUsername(): string {
